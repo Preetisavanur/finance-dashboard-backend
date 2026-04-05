@@ -20,4 +20,13 @@ public class FinancialService {
     public List<FinancialRecord> getAllRecords() {
         return repo.findAll();
     }
+
+    public FinancialRecord updateRecord(Long id, FinancialRecord record) {
+        record.setId(id);
+        return repo.save(record);
+    }
+
+    public void deleteRecord(Long id) {
+        repo.deleteById(id);
+    }
 }

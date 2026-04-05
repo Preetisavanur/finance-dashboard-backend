@@ -33,4 +33,15 @@ public class FinancialController {
     public List<FinancialRecord> getAll() {
         return service.getAllRecords();
     }
+
+    @PutMapping("/{id}")
+    public FinancialRecord update(@PathVariable Long id, @RequestBody FinancialRecord record) {
+        return service.updateRecord(id, record);
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+        service.deleteRecord(id);
+        return "Deleted successfully";
+    }
 }
